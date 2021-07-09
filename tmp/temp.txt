@@ -1,0 +1,104 @@
+,
+    '/offline.html',
+
+    '/pages/contato.html',
+    '/pages/sobre.html'
+
+    sync
+    var notificationId = 0;
+
+    console.log('SW sync: ',event.tag);
+
+    let tagArray = event.tag.split(',');
+    let userId = tagArray[0];
+    let assinatura = tagArray[1];
+    console.log('userId: "' + userId + '"');
+    console.log('assinatura: "' + assinatura + '"');
+
+    if (userId !== '') {
+        console.log('SW sync irá notificar o ' + userId + ' sobre ' + assinatura);
+
+        if (assinatura == 'tecnologia') {
+            console.log('notícias sobre tecnologia a cada 30 seg.');
+            event.waitUntil(
+                setInterval(function() { NotificarTecnlogia(userId); }, 30000)
+            );
+        }
+        if (assinatura == 'esporte') {
+            console.log('notícias sobre esporte a cada 30 seg.');
+            event.waitUntil(
+                setInterval(function() { NotificarEsporte(userId); }, 30000)
+            );
+        }
+    }
+
+    function NotificarTecnlogia(userId) {
+        console.log('userId: ' + userId);
+        console.log(Date(Date.now()).toString());
+        console.log('notificationTecnologiaId', notificationTecnologiaId);
+
+        fetch('/server/dataTecnologia.json').then(response => {
+            if (response.status !== 200) {
+                console.log('Erro ao acessar o arquivo json: ' + response.status);
+                return;
+            }
+
+            response.json().then(data => {
+                data.forEach(dias => {
+                    if(notificationTecnologiaId < dias.id) {
+                        notificationTecnologiaId = dias.id;
+
+                        dias.notifications.forEach(notes => {
+                            if(notes.userId == userId) {
+                                return self.registration.showNotification(
+                                    'CEP',
+                                    {
+                                        body: notes.mensagem,
+                                        icon: '/img/ico/ico_192.png'
+                                    }    
+                                );
+                            }
+                        });
+                    }
+                });
+            });
+        }).catch(err => {
+            console.log('Erro ao acessar o arquivo json: ', err);
+        });
+    }
+
+    function NotificarEsporte(userId) {
+        console.log('userId: ' + userId);
+        console.log(Date(Date.now()).toString());
+        console.log('notificationEsporteId', notificationEsporteId);
+
+        fetch('/server/dataEsporte.json').then(response => {
+            if (response.status !== 200) {
+                console.log('Erro ao acessar o arquivo json: ' + response.status);
+                return;
+            }
+
+            response.json().then(data => {
+                data.forEach(dias => {
+                    if(notificationEsporteId < dias.id) {
+                        notificationEsporteId = dias.id;
+
+                        dias.notifications.forEach(notes => {
+                            if(notes.userId == userId) {
+                                return self.registration.showNotification(
+                                    'CEP',
+                                    {
+                                        body: notes.mensagem,
+                                        icon: '/img/ico/ico_192.png'
+                                    }    
+                                );
+                            }
+                        });
+                    }
+                });
+            });
+        }).catch(err => {
+            console.log('Erro ao acessar o arquivo json: ', err);
+        });
+    }
+*/

@@ -46,10 +46,27 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="/js/app.js"></script>
+    <style>
+      html, body { height: 100%; }
+      body {
+        background-image: url("/img/offline.png");
+        background-repeat: no-repeat;       
+        background-position: center;
+        background-size: 200px 200px;
+        background-color: rgb(202, 143, 143);
+      }
+      h1 {
+        text-align: center;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgba(215,25,25,50);
+      }
+    </style>
 </head>
 <body>
   <!-- Menu superior -->
@@ -64,12 +81,12 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Menu de opções</a>
+            <a class="nav-link" aria-current="page" href="/index.html">Menu de opções</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/pages/pedidos.html">Pedidos</a>
           </li>
-           <li>
+          <li>
             <div class="d-grid gap-2 col-6 mx-auto">
               <button type="button" id="btnInstalar" class="btn btn-outline-primary" style="display: none;">Instalar</button>
             </div>
@@ -90,21 +107,13 @@
     </div>
   </div>
 
-  <!-- conteúdo -->
-  <h1>Menu de Opções</h1>
-
   <!-- mensagens -->
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="img/ico/ico_72.png" class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
+  <div class="alert alert-warning" role="alert">
+    Verifique sua conexão com a internet e tente novamente.
   </div>
+
+  <!-- conteúdo -->
+  <h1>Offline</h1>
 
 </body>
 </html>
