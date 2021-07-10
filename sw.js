@@ -1,7 +1,8 @@
-var versao = '0.0.1';
+var versao = '0.0.2';
 var arquivos = [
     '/',
     '/favicon.ico',
+    /*
     '/manifest.json',
     '/img/offline.png',
     '/img/splash_480x640.jpg',
@@ -15,6 +16,7 @@ var arquivos = [
     '/img/ico/ico_384.png',
     '/img/ico/ico_512.png',
     '/js/app.js',
+    */
     '/pages/offline.html',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'
