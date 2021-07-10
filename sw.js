@@ -1,6 +1,6 @@
-var versao = '0.0.3';
+var versao = '0.0.4';
 var arquivos = [
-    '/',
+    // '/',
     'app.js',
     'favicon.ico',
     'manifest.json',
