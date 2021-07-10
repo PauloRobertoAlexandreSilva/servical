@@ -4,30 +4,30 @@
     "name": "SERVIÇAL",
     "description": "Seu garçom pessoal",
     "short_name": "SERVIÇAL",
-    "scope": "/",
-    "start_url": "/index.html",
+    "scope": ".",
+    "start_url": "index.html",
     "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#10507F",
     "background_color": "#10507F",
     "icons": [{
-        "src": "/img/ico/ico_72.png",
+        "src": "img/ico/ico_72.png",
         "sizes": "72x72",
         "type": "image/png"
     }, {
-        "src": "/img/ico/ico_96.png",
+        "src": "img/ico/ico_96.png",
         "sizes": "96x96",
         "type": "image/png"
     }, {
-        "src": "/img/ico/ico_128.png",
+        "src": "img/ico/ico_128.png",
         "sizes": "128x128",
         "type": "image/png"
     }, {
-        "src": "/img/ico/ico_144.png",
+        "src": "img/ico/ico_144.png",
         "sizes": "144x144",
         "type": "image/png"
     }, {
-        "src": "/img/ico/ico_152.png",
+        "src": "img/ico/ico_152.png",
         "sizes": "152x152",
         "type": "image/png"
     }, {
@@ -35,20 +35,20 @@
         "sizes": "192x192",
         "type": "image/png"
     }, {
-        "src": "/img/ico/ico_384.png",
+        "src": "img/ico/ico_384.png",
         "sizes": "384x384",
         "type": "image/png"
     }, {
-        "src": "/img/ico/ico_512.png",
+        "src": "img/ico/ico_512.png",
         "sizes": "512x512",
         "type": "image/png"
     }],
     "screenshots": [{
-        "src": "/img/splash_480x640.jpg",
+        "src": "img/splash_480x640.jpg",
         "sizes": "480x640",
         "type": "image/jpeg"
     },{
-        "src": "/img/splash_920x1280.jpg",
+        "src": "img/splash_920x1280.jpg",
         "sizes": "920x1280",
         "type": "image/jpeg"
     }]
