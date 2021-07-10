@@ -1,25 +1,21 @@
-var versao = '0.0.2';
+var versao = '0.0.3';
 var arquivos = [
-/*
     '/',
-    '/favicon.ico',
-    '/manifest.json',
-    '/img/offline.png',
-    '/img/splash_480x640.jpg',
-    '/img/splash_920x1280.jpg',
-    '/img/ico/ico_72.png',
-    '/img/ico/ico_96.png',
-    '/img/ico/ico_128.png',
-*/
+    'app.js',
+    'favicon.ico',
+    'manifest.json',
+    'img/offline.png',
+    'img/splash_480x640.jpg',
+    'img/splash_920x1280.jpg',
+    'img/ico/ico_72.png',
+    'img/ico/ico_96.png',
+    'img/ico/ico_128.png',
     'img/ico/ico_144.png',
-/*
-    '/img/ico/ico_152.png',
-    '/img/ico/ico_192.png',
-    '/img/ico/ico_384.png',
-    '/img/ico/ico_512.png',
-    '/js/app.js',
-    '/pages/offline.html',
-*/
+    'img/ico/ico_152.png',
+    'img/ico/ico_192.png',
+    'img/ico/ico_384.png',
+    'img/ico/ico_512.png',
+    'pages/offline.html',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'
 ];
