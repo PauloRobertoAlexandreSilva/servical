@@ -1,4 +1,4 @@
-var versao = '0.0.1';
+var versao = '0.0.2';
 var arquivos = [
 /*
     '/',
@@ -10,7 +10,9 @@ var arquivos = [
     '/img/ico/ico_72.png',
     '/img/ico/ico_96.png',
     '/img/ico/ico_128.png',
-    '/img/ico/ico_144.png',
+*/
+    'img/ico/ico_144.png',
+/*
     '/img/ico/ico_152.png',
     '/img/ico/ico_192.png',
     '/img/ico/ico_384.png',
