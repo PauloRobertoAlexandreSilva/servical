@@ -48,6 +48,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- QR Code Create -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script src="js/qrcodeCreate.js"></script>
+
+    <!-- QR Code Read -->
+    <link rel="stylesheet" href="css/qrcode.css">
+    <script src="js/qrcodelib.js"></script>
+    <script src="js/webcodecamjs.js"></script>
+
+
     <script src="app.js"></script>
 </head>
 <body>
@@ -85,25 +96,28 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      ...
+      <p>'SERVIÇAL' é o aplicativo que notifica, imediatamente, o responsável para prepar o seu pedido, te mantendo atualizado.</p>
+      <p>É ótimo para restaurantes, bares, cafés, hotéis, pousadas, eventos coquetéis e muito mais.</p>
+      <div id="qrcode" style="text-align: center"></div>
     </div>
   </div>
 
   <!-- conteúdo -->
-  <h1>Menu de Opções</h1>
-
-  <!-- mensagens -->
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="img/ico/ico_72.png" class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
+<div style="text-align: center;">
+  <div class="well" style="position: relative; display: inline-block; margin: 0 auto;">
+    <canvas id="webcodecam-canvas"></canvas>
+    <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>
+    <div class="scanner-laser laser-rightTop" style="opacity: 0.5;"></div>
+    <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
+    <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
   </div>
-
+  <h6>Escaneie o QRCode do Local onde deseja ser servido</h6>
+</div>
+  
+  <script type="text/javascript">
+    new WebCodeCamJS('#webcodecam-canvas').init();
+    var decoder = new WebCodeCamJS('#webcodecam-canvas');
+    decoder.init().play();
+  </script>
 </body>
 </html>

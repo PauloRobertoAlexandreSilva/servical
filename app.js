@@ -13,7 +13,7 @@ window.addEventListener('load', event => {
 
     window.addEventListener("beforeinstallprompt", eventBeforeInstall => {
 
-        // console.log('aplicativo ainda não instalado', event.platforms);
+        console.log('aplicativo ainda não instalado', event.platforms);
 
         btnInstalar.style.display = 'block';
         eventBeforeInstall.preventDefault();
@@ -24,13 +24,9 @@ window.addEventListener('load', event => {
             eventBeforeInstall.prompt();
             eventBeforeInstall.userChoice.then(choice => {
                 if (choice.outcome === 'accepted') {
-
                     // console.log('User accepted');
-
                 } else {
-
                     // console.log('User dismissed');
-
                 }
                 eventBeforeInstall = null;
             });
