@@ -164,6 +164,10 @@ var WebCodeCamJS = function(element) {
     }
 
     function cameraSuccess(stream) {
+        console.log(stream);
+
+        document.getElementById("resultado").innerHTML += stream.id;
+
         localStream = stream;
         video.streamSrc(stream);
         options.cameraSuccess(stream);
