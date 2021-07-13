@@ -4,6 +4,7 @@
     <title>webcam</title>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="css/qrcode.css">
 
@@ -19,12 +20,25 @@
         <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
         <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
     </div>
+
+    <hr>
+    <select></select>
+    <hr>
+    <ul></ul>
+
     <div id="resultado"></div>
 
     <script type="text/javascript">
-        new WebCodeCamJS('#webcodecam-canvas').init();
+    /*
         var decoder = new WebCodeCamJS('#webcodecam-canvas');
         decoder.init().play();
+    */
+    
+        var decoder = new WebCodeCamJS("#webcodecam-canvas").buildSelectMenu('select', 'environment|back').init().play();
+        document.querySelector('select').addEventListener('change', function(){
+            decoder.stop().play();
+        });
+    
     </script>
 </body>
 </html>

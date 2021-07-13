@@ -17,7 +17,7 @@ var WebCodeCamJS = function(element) {
         return new Promise(function(y, n) {
             (window.navigator.getUserMedia || window.navigator.mozGetUserMedia || window.navigator.webkitGetUserMedia).call(navigator, c, y, n);
         });
-    };
+    }
     HTMLVideoElement.prototype.streamSrc = ('srcObject' in HTMLVideoElement.prototype) ? function(stream) {
         this.srcObject = !!stream ? stream : null;
     } : function(stream) {
@@ -30,7 +30,7 @@ var WebCodeCamJS = function(element) {
     var videoSelect, lastImageSrc, con, beepSound, w, h, lastCode;
     var display = Q(element),
         DecodeWorker = null,
-        video = html('<video muted autoplay></video>'),
+        video = html('<video muted autoplay playsinline></video>'),
         sucessLocalDecode = false,
         localImage = false,
         flipMode = [1, 3, 6, 8],
@@ -57,7 +57,7 @@ var WebCodeCamJS = function(element) {
                         sourceId: true
                     }]
                 },
-                audio: false
+                audio: false,
             },
             flipVertical: false,
             flipHorizontal: false,
@@ -74,7 +74,7 @@ var WebCodeCamJS = function(element) {
                 console.log(res.format + ": " + res.code);
             },
             cameraSuccess: function(stream) {
-                // console.log('cameraSuccess');
+                console.log('cameraSuccess');
             },
             canPlayFunction: function() {
                 console.log('canPlayFunction');
@@ -92,7 +92,6 @@ var WebCodeCamJS = function(element) {
 
     function init() {
         var constraints = changeConstraints();
-
         try {
             mediaDevices.getUserMedia(constraints).then(cameraSuccess).catch(function(error) {
                 options.cameraError(error);
@@ -159,7 +158,7 @@ var WebCodeCamJS = function(element) {
 
     function beep() {
         if (options.beep) {
-            // beepSound.play();
+            beepSound.play();
         }
     }
 
@@ -170,8 +169,6 @@ var WebCodeCamJS = function(element) {
     }
 
     function cameraError(error) {
-        console.error(error);
-
         options.cameraError(error);
     }
 
@@ -453,11 +450,7 @@ var WebCodeCamJS = function(element) {
         if (videoSelect && videoSelect.length !== 0) {
             switch (videoSelect[videoSelect.selectedIndex].value.toString()) {
                 case 'true':
-                    if (navigator.userAgent.match("Mac")) {
-                        constraints.video = {
-                           facingMode: "environment"
-                        };
-                    } else if (!navigator.userAgent.match("Edge") && navigator.userAgent.match("Chrome")) {
+                    if (navigator.userAgent.search("Edge") == -1 && navigator.userAgent.search("Chrome") != -1) {
                         constraints.video.optional = [{
                             sourceId: true
                         }];
@@ -469,15 +462,11 @@ var WebCodeCamJS = function(element) {
                     constraints.video = false;
                     break;
                 default:
-                    if (navigator.userAgent.match("Mac")) {
-                        constraints.video = {
-                            facingMode: (videoSelect[videoSelect.selectedIndex].value.match("user") ? "user" :  "environment") 
-                        };
-                    } else if (!navigator.userAgent.match("Edge") && navigator.userAgent.match("Chrome")) {
+                    if (navigator.userAgent.search("Edge") == -1 && navigator.userAgent.search("Chrome") != -1) {
                         constraints.video.optional = [{
                             sourceId: videoSelect[videoSelect.selectedIndex].value
                         }];
-                    } else if (navigator.userAgent.match("Firefox")) {
+                    } else if (navigator.userAgent.search("Firefox") != -1) {
                         constraints.video.deviceId = {
                             exact: videoSelect[videoSelect.selectedIndex].value
                         };
@@ -628,6 +617,9 @@ var WebCodeCamJS = function(element) {
         },
         isInitialized: function() {
             return initialized;
+        },
+        getWorker: function () {
+            return DecodeWorker;
         },
         options: options
     };
