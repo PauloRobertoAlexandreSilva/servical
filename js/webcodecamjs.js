@@ -14,9 +14,6 @@ var WebCodeCamJS = function(element) {
     };
     var mediaDevices = window.navigator.mediaDevices;
     mediaDevices.getUserMedia = function(c) {
-        console.log('1', c.video.optional.length);
-        document.getElementById("resultado").innerHTML += c.video.optional.length + '<br>';
-
         return new Promise(function(y, n) {
             (window.navigator.getUserMedia || window.navigator.mozGetUserMedia || window.navigator.webkitGetUserMedia).call(navigator, c, y, n);
         });
@@ -95,6 +92,9 @@ var WebCodeCamJS = function(element) {
 
     function init() {
         var constraints = changeConstraints();
+
+        console.log('init) ', constraints.video.optional.length);
+        document.getElementById("resultado").innerHTML += constraints.video.optional.length + '<br>';
         try {
             mediaDevices.getUserMedia(constraints).then(cameraSuccess).catch(function(error) {
                 options.cameraError(error);
@@ -166,8 +166,8 @@ var WebCodeCamJS = function(element) {
     }
 
     function cameraSuccess(stream) {
-        console.log(stream);
-        document.getElementById("resultado").innerHTML += stream.id;
+        console.log('cameraSuccess', stream);
+        document.getElementById("resultado").innerHTML += stream.id + '<br>';
 
         localStream = stream;
         video.streamSrc(stream);
