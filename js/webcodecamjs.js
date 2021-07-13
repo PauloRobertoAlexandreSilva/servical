@@ -174,6 +174,8 @@ var WebCodeCamJS = function(element) {
     }
 
     function cameraError(error) {
+        console.error(error);
+
         options.cameraError(error);
     }
 
