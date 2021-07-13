@@ -72,6 +72,7 @@ var WebCodeCamJS = function(element) {
             sharpness: [],
             resultFunction: function(res) {
                 console.log(res.format + ": " + res.code);
+                document.getElementById("resultado").innerHTML += res.format + ": " + res.code + '<br>';
             },
             cameraSuccess: function(stream) {
                 // console.log('cameraSuccess');

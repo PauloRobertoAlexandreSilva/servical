@@ -28,3 +28,13 @@
     border-bottom: solid red 5px;
     border-right: solid red 5px;
 }
+.webcamChange{
+    bottom:0;
+    right: 0;
+    margin: 5px;
+    background-image: url("../img/camChange.png");
+    /* background-color: #ffffff; */ 
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    cursor: pointer
+}

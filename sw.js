@@ -1,4 +1,4 @@
-var versao = '0.0.4';
+var versao = '0.0.1';
 var arquivos = [
     'app.js',
     'favicon.ico',
@@ -15,8 +15,12 @@ var arquivos = [
     'img/ico/ico_384.png',
     'img/ico/ico_512.png',
     'pages/offline.html',
+    'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css',
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'
+    'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js',
+    'js/qrcodelib.js',
+    'js/DecoderWorker.js'
 ];
 
 self.addEventListener('install', event => {
