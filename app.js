@@ -18,7 +18,7 @@ window.addEventListener('load', event => {
         btnInstalar.style.display = 'block';
         eventBeforeInstall.preventDefault();
 
-        btnInstalar.addEventListener("click", event => {
+        btnInstalar.addEventListener(handleClick, event => {
             btnInstalar.style.display = 'none';
     
             eventBeforeInstall.prompt();
@@ -33,6 +33,7 @@ window.addEventListener('load', event => {
         });
     
     });
+    
     window.addEventListener('appinstalled', event => {
         console.log('aplicativo instalado');
     });

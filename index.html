@@ -122,13 +122,20 @@
   </div>
 
   <script type="text/javascript">
+  
+    // compatibilidade com ipad
+    var handleClick = 'click';
+    if('ontouchstart' in document.documentElement) {
+        handleClick = 'touchstart';
+    }
+
     var decoder = new WebCodeCamJS("#webcodecam-canvas").buildSelectMenu('select', 'environment|back').init().play();
     
     document.querySelector('select').addEventListener('change', function(){
         decoder.stop().play();
     });
 
-    document.getElementById('webcamChange').addEventListener('click ontouchstart', function() {
+    document.getElementById('webcamChange').addEventListener(handleClick, function() {
         var opts = document.querySelector('select').options.length;
         var opt = document.querySelector('select').selectedIndex + 1;
 
