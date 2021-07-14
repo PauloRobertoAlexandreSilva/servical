@@ -66,7 +66,8 @@
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <img src="img/ico/ico_96.png" alt="" width="24" height="24" class="d-inline-block align-text-top" style="margin-right: 0.5em;">SERVIÇAL
+        <img src="img/ico/ico_96.png" alt="" width="24" height="24" class="d-inline-block align-text-top" style="margin-right: 0.5em;">
+        SERVIÇAL
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,6 +79,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/pedidos.html">Pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="teste.html">EM TESTE</a>
           </li>
           <li>
             <div class="d-grid gap-2 col-6 mx-auto">
@@ -124,7 +128,7 @@
         decoder.stop().play();
     });
 
-    document.getElementById('webcamChange').addEventListener('click', function() {
+    document.getElementById('webcamChange').addEventListener('click ontouchstart', function() {
         var opts = document.querySelector('select').options.length;
         var opt = document.querySelector('select').selectedIndex + 1;
 
@@ -140,7 +144,7 @@
             document.querySelector('select').ownerDocument.defaultView,
             0, 0, 0, 0, 0, false, false, false, false, 0, null);
 
-        document.querySelector('select').dispatchEvent( event );
+        document.querySelector('select').dispatchEvent(event);
     });
   </script>
 </body>

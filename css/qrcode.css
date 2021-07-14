@@ -31,9 +31,9 @@
 .webcamChange{
     bottom:0;
     right: 0;
-    margin: 5px;
+    margin: 0px;
     background-image: url("../img/camChange.png");
-    /* background-color: #ffffff; */ 
+    background-color: #ffffff;
     background-repeat: no-repeat;
     background-size: 30px 30px;
     cursor: pointer
